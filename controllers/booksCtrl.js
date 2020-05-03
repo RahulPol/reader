@@ -3,18 +3,11 @@ const fs = require('fs');
 const PDFParser = require("pdf2json");
 
 exports.getBook = function (req, res, next) {
-    let bookId = req.params.id;
-    let bookName, bookContent;
-    switch (bookId) {
-        case "1":
-            bookName = "Chapter 1_ Into Programming.pdf"
-            break;
-        case "2":
-            bookName = "You Dont Know JS. Part 2 Scope _ Closures.pdf"
-            break;
-    }
-    //TODO: ykdjs is hardcoding remove it    
-    let bookFilePath = path.join(process.env.NODE_PATH, 'books/ykdjs', bookName);
+    let bookName = req.params.bookname;
+    console.log(req.params)
+    let bookContent;
+
+    let bookFilePath = path.join(process.env.NODE_PATH, 'books/', unescape(bookName));
 
 
     if (fs.existsSync(bookFilePath)) {
@@ -34,10 +27,13 @@ exports.getBook = function (req, res, next) {
                     jsonContent: JSON.stringify(pdfData)
                 });
         });
-
-
         pdfParser.loadPDF(bookFilePath);
-
-
+    } else {
+        res.send(createError(404))
     }
+}
+
+exports.getB = (req, res, next) => {
+    console.log(req.params.bookName)
+    res.send("hello");
 }
