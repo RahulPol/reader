@@ -43,7 +43,9 @@ $(document).ready(() => {
     }
 
     let validateToken = (token) => {
-        return token.length > 0;
+        let regexp1 = /^-+/;
+        let regexp2 = /-+$/;
+        return token.length > 0 && !regexp1.test(token) && !regexp2.test(token);
     }
 
     let getTokens = (content) => {
@@ -79,8 +81,11 @@ $(document).ready(() => {
         }
     }
 
+
+    // Chapter 1 IntoProgramming.pdf
+    // Hide and Seek.pdf
     $.ajax({
-        url: "http://localhost:3000/book/part/1", success: function (result) {
+        url: "http://localhost:3000/book/Chapter 1 IntoProgramming.pdf", success: function (result) {
             initPage(result);
             $(document.getElementById("footer")).css({ display: "block" })
         }
