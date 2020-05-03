@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Reader</title>
+
+</head>
+
+<body>
+    <div id="root">
+        <div id="title"></div>
+        <div id="controls">
+            <div class="input-group col-12">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                </div>
+                <input id="wpm" class="col-10" type="number" min="70" placeholder="70" value="120">
+                <div class="input-group-append">
+                    <span class="input-group-text">WordsPerMinute</span>
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <div id="prev"></div>
+            <div id="current"></div>
+        </div>
+
+        <div id="footer">
+            <p style="text-align: center;display: inline;position: relative;left: 50%;">Press space to start/pause</p>
+            <p id="completPercentage"
+                style="text-align: right;display: inline;position: relative;left: 80%;color: green;">0%
+                complete</p>
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/scripts/reader.js"></script>
+</body>
+
+</html>

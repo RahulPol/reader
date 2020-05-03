@@ -6,6 +6,7 @@
     "start": "cross-env NODE_PATH=. nodemon ./bin/www"
   },
   "dependencies": {
+    "compression": "^1.7.4",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
@@ -13,7 +14,9 @@
     "morgan": "~1.9.1",
     "nodemon": "^2.0.3",
     "pdf2json": "^1.2.0",
-    "pug": "2.0.0-beta11"
+    "pug": "2.0.0-beta11",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "cross-env": "^7.0.2"

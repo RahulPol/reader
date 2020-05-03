@@ -1,5 +1,16 @@
-extends layout
-
-block content
-  h1= name
-  p Welcome to #{content}
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='/scripts/reader.js')
+    script(type="text/javascript").
+      var bookName = "#{JSON.stringify(name)}"
+      var bookContent = "#{JSON.stringify(content)}"
+      window['bookName']=bookName
+      window['bookContent']=bookContent
+    //- TODO : Check why this is not working.
+    //- script(src='/scripts/reader.js')    
+    //-     
+  body
+    #app.whole-page    

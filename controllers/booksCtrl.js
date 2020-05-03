@@ -7,28 +7,16 @@ exports.getBook = function (req, res, next) {
     let bookName, bookContent;
     switch (bookId) {
         case "1":
-            bookName = "You Dont Know JS. Part 1 -Up and Going.pdf"
+            bookName = "Chapter 1_ Into Programming.pdf"
             break;
         case "2":
             bookName = "You Dont Know JS. Part 2 Scope _ Closures.pdf"
             break;
-        // case 3:
-        //     bookName = ""
-        //     break;
-        // case 4:
-        //     bookName = ""
-        //     break;
-        // case 5:
-        //     bookName = ""
-        //     break;
-        // case 6:
-        //     bookName = ""
-        //     break;
-
     }
+    //TODO: ykdjs is hardcoding remove it    
     let bookFilePath = path.join(process.env.NODE_PATH, 'books/ykdjs', bookName);
 
-    //TODO: ykdjs is hardcoding remove it    
+
     if (fs.existsSync(bookFilePath)) {
         let pdfParser = new PDFParser(this, 1);
 
@@ -38,11 +26,13 @@ exports.getBook = function (req, res, next) {
             next(createError(500))
         });
         pdfParser.on("pdfParser_dataReady", pdfData => {
-            bookContent = pdfParser.getRawTextContent();
-            res.render('reader', {
-                name: bookName,
-                content: bookContent
-            });
+            bookContent =
+                // bookContent = JSON.stringify(pdfData);
+                res.send({
+                    name: bookName,
+                    rawContent: pdfParser.getRawTextContent(),
+                    jsonContent: JSON.stringify(pdfData)
+                });
         });
 
 
