@@ -7,25 +7,14 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch via NPM",
-            "runtimeExecutable": "npm",
-            "runtimeArgs": [
-                "run-script",
-                "start"
-            ],
-            "port": 3000,
-            "skipFiles": [
-                "<node_internals>/**"
-            ]
-        },
-        {
-            "type": "node",
-            "request": "launch",
             "name": "Launch Program",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\bin\\www"
+            "program": "${workspaceFolder}\\bin\\www",
+            "env": {
+                "NODE_PATH": "."
+            }
         }
     ]
 }
