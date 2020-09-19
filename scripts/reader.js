@@ -85,7 +85,7 @@ $(document).ready(() => {
     // Chapter 1 IntoProgramming.pdf
     // Hide and Seek.pdf
     $.ajax({
-        url: "http://localhost:3000/book/Chapter 1 IntoProgramming.pdf", success: function (result) {
+        url: "http://localhost:3000/book/asynchronous%20javascript.pdf", success: function (result) {
             initPage(result);
             $(document.getElementById("footer")).css({ display: "block" })
         }

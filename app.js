@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var cors = require('cors');
 
 var readerRouter = require('./routes/readerRouter');
 var booksRouter = require('./routes/booksRouter');
@@ -22,6 +23,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get("/favicon.ico", (req, res) => {
   res.sendFile("/images/stitchX.png", { root: process.env.NODE_PATH });
+});
+
+app.use(cors({
+  "Access-Control-Allow-Origin": "*"
+}));
+app.get("/getOne", (req, res) => {
+  res.send({ one: 1 });
 });
 
 app.use('/reader', readerRouter);
